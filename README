@@ -1,0 +1,167 @@
+                           tk3
+
+             Copyright 2001, 2002, Bob Parnass
+                      2350 Douglas Rd
+                 Oswego, IL 60543-9794 USA
+                       bob@parnass.org
+                      http://parnass.org
+
+tk3 is open source software designed for the ICOM IC-R3
+receiver.
+
+I implemented tk3 in the Tcl/Tk scripting language which
+enables it to run on a variety of operating systems,
+including Linux and Microsoft Windows 98.
+I have not tested tk3 on other platforms,
+but it will probably work on them after little or no modification.
+
+The free Tcl/Tk interpreter software must be installed
+on your computer prior to using tk3.
+
+Installation instructions may be found on the web at
+http://parnass.org
+
+
+
+                          Notes
+
+
+The Linux version of tk3 presumes the wish windowing shell
+is in your PATH.
+
+
+
+                          License
+
+tk3 is neither shareware nor in the public domain.  It is
+a copyrighted work; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as
+published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+tk3 is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
+the GNU General Public License for more details.
+
+You should have received a file named "COPYING" which
+contains a copy of the GNU General Public License along with
+tk3; if not, write to the Free Software Foundation, Inc.,
+59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
+
+
+			Acknowledgments
+
+Some of the Tcl/Tk procedures used in tk3 were devised by
+other authors and their contributions are marked accordingly
+within the source code.
+
+Thanks to Irwin Shapiro for devising and publishing the
+IC-R3 memory layout. Thanks to Les Butler, Irwin Shapiro, and
+Wayne Turner for helping to test tk3.
+
+
+                     Bob Parnass, AJ9S
+                     October 19, 2002
+
+
+
+USAGE NOTES
+
+Obtain the proper TTL-to-RS232 adaptor for mating the
+computer to the receiver.  Do not use a direct connect
+cable.  I use the adaptor sold by RT Systems (http://rtsars.com).
+
+In general, it's a good idea to connect the computer and radio
+while the power to both is off.  It's inconvenient to turn the PC
+off and on just to disconnect the radio so I use a serial port
+switch box which connects my PC's serial port to one of four
+devices and merely switch the radio in and out of the line.
+
+After downloading and installing the software on your computer,
+you must reboot your PC.
+
+When you first start the program, you will asked to identify
+which serial port is connected to the radio. (If you ever
+relocate the radio to a different serial port,
+you should remove the tk3.ini file and restart tk3.
+tk3 will recreate the tk3.ini file for you.
+Linux and MacOS X use an initialization
+file named .tk3rc instead of tk3.ini.)
+
+Once you've identified the proper serial port,
+tk3 will open a couple of windows and display what
+looks like a few forms.
+
+This version of tk3 supports the USA and other version radios.
+Use the Radio pulldown menu and select "Model with 9 kHz
+BCB steps" or "Model with 10 kHz BCB steps," depending
+on which version radio you have.  The USA and Canadian versions
+employ 10 kHz steps in the AM Broadcast Band.
+
+Use of this program with the wrong version radio will result in
+unpredictable behavior.
+
+Important: Before trying to reprogram your radio, you should first
+read the image from your radio using the
+Radio --> Read from radio...
+menus and save it in a file using the
+File --> Save As...
+menus.  You can name is something like "original.tr3".
+Back up this file.
+
+
+You can then export the memory channel information to
+a .csv file, using the File --> Export memory channels menu.
+Exit tk3.
+
+You can use a text editor or spreadsheet
+program to change or pretty-print the data in the .csv file.
+Just be sure to write the data out in .csv format again.
+
+You can restart tk3 and read the memory image file
+(original.tr3 or whatever you named it) you created earlier,
+using the File --> Open menus.
+
+You can then view and change any of the settings.
+If you have changed any of the memory channel data
+in the .csv file, import it into tk3 using the
+File --> Import memory channels menu.
+
+You can check for errors in the data by using the
+Data --> Validate menu.
+
+If there are no errors, you should write the infomation
+to a new image file (file name ends in .tr3) using the
+File --> Save As menu.
+
+You can now program your radio using the
+Radio --> Write to radio menu.
+
+Note:  You cannot both read from and write to the radio
+during the same tk3 session.
+
+
+
+
+IMPORTING A FREQUENCY LIST FROM A .CSV FILE
+
+Start the program.
+
+Read in an image file (.tr3 extension) using
+
+File -> Open
+
+Import the memory channel information from
+your .csv file using:
+
+File -->  Import Memory Channels
+
+
+Save the updated image in a new .tr3 file using
+File --> Save As ...
+
+Write the new image to the radio using
+
+Radio --> Write to radio
+
